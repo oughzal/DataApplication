@@ -15,6 +15,7 @@ class MainActivity : AppCompatActivity() {
         setContentView(R.layout.activity_main)
         viewPager = findViewById(R.id.viewPager)
         tabLayout = findViewById(R.id.tabLayout)
+
         viewPager.adapter = ViewPageAdapter(this)
         TabLayoutMediator(tabLayout,viewPager){ tab: TabLayout.Tab, i: Int ->
                tab.text = tabNames[i]
