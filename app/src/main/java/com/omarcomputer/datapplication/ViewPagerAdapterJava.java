@@ -9,6 +9,7 @@ import java.util.List;
 
 public class ViewPagerAdapterJava extends ViewPageAdapter{
     List<Fragment> fragmentList = new ArrayList<>();
+
     public ViewPagerAdapterJava(@NonNull FragmentActivity fragmentActivity) {
         super(fragmentActivity);
         fragmentList.add(new Fragment1());
