@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.viewpager2.widget.ViewPager2;
 
 import android.os.Bundle;
+import android.widget.TextView;
 
 import com.google.android.material.tabs.TabLayout;
 import com.google.android.material.tabs.TabLayoutMediator;
@@ -12,15 +13,17 @@ import java.util.ArrayList;
 
 import kotlin.Pair;
 
-public class MainActivity2 extends AppCompatActivity {
+public class MainActivity2 extends AppCompatActivity implements Fragment1.SendMessages {
     ViewPager2 viewPager;
     TabLayout tabLayout;
+    TextView txtMessage;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main2);
         viewPager = findViewById(R.id.viewPager);
         tabLayout = findViewById(R.id.tabLayout);
+        txtMessage = findViewById(R.id.txtCible);
         ArrayList<String> tabNames = new ArrayList<>();
         ArrayList<Integer> tabNamesIcons = new ArrayList<>();
         tabNames.add("Chat");
@@ -36,5 +39,11 @@ public class MainActivity2 extends AppCompatActivity {
             tab.setText(tabNames.get(pos));
             tab.setIcon(tabNamesIcons.get(pos));
         }).attach();
+    }
+
+
+    @Override
+    public void sendMessage(String msg) {
+    txtMessage.setText(msg);
     }
 }
