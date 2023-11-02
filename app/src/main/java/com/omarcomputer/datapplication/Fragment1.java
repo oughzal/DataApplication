@@ -16,7 +16,7 @@ import android.widget.EditText;
 public class Fragment1 extends Fragment {
     Button btnSendMessage;
     EditText message;
-    SendMessages sm; // interface
+    SendMessagesInterface sm; // interface
 
     public Fragment1() {
         // Required empty public constructor
@@ -52,7 +52,7 @@ public class Fragment1 extends Fragment {
             @Override
             public void onClick(View view) {
                 // TODO : envoyer un messsage à l'activité hôte
-                sm.sendMessage(message.getText().toString());
+                sm.SendData(message.getText().toString());
             }
         });
     }
@@ -60,10 +60,10 @@ public class Fragment1 extends Fragment {
     @Override
     public void onAttach(@NonNull Context context) {
         super.onAttach(context);
-        sm = (SendMessages) getActivity();
+        sm = (SendMessagesInterface) getActivity();
     }
 
-    public interface SendMessages{
-        public void sendMessage(String msg);
+    public interface SendMessagesInterface {
+        public void SendData(String msg);
     }
 }
