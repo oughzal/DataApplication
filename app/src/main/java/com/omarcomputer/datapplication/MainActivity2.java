@@ -44,6 +44,8 @@ public class MainActivity2 extends AppCompatActivity implements Fragment1.SendMe
 
     @Override
     public void sendMessage(String msg) {
-    txtMessage.setText(msg);
+    //txtMessage.setText(msg);
+    Fragment2 fr2 =(Fragment2)getSupportFragmentManager().getFragments().get(1);
+    fr2.getMessage(msg);
     }
 }
